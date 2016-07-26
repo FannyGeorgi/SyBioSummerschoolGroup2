@@ -1,15 +1,16 @@
-#runge kutta
-#dc/dt = -lambda*c     c(t = 0) =c0 
+%runge kutta
+%dc/dt = -lambda*c     c(t = 0) =c0 
 
-#assume lambda = 1
+%assume lambda = 1
 
 clc
 close all
 clear all
-global lambda =1;
+%global lambda =1;
+lambda =1;
 x0 = 1;
 t0 = 0;
-h = 0.3; #h is my dt
+h = 2; %h is my dt
 i = 1;
 n = 100;
 x(i) = x0;
@@ -29,4 +30,10 @@ while i<=n
 end
 
 plot(t,x)
-grid on
+min=0;
+max=60;
+t2=linspace(min,max,1000);
+th=exp(-t2);
+hold on
+plot(t2,th,'r')
+grid off
