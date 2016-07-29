@@ -73,16 +73,17 @@ for t = 1:tmax
     check = p(1);
     reactionhappening = 2;
     dice = rand(1);
-    while dice < check
+    while dice > check
         check = check + p(reactionhappening);
+        disp(check);
         reactionhappening = reactionhappening +1;
     end
     
     % let the reaction happen
-    Nt = Nt + Vplus(reactionhappening) - Vminus(reactionhappening);
+    Nt = Nt + Vplus(reactionhappening-1) - Vminus(reactionhappening-1);
     
     % keep track of reacktions happening
-    reaction(t) = reactionhappening;
+    reaction(t) = reactionhappening-1;
     
     % save duration of time step
     ttime(t) = tau;
