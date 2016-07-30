@@ -12,12 +12,14 @@ NA = 2.4*10^5;
 NP = 9.8*10^4;
 DA = 0.28;
 DP = 0.15;
-tmax = 500000;
+tmax = 5000000;
 
 % declare initial conditions
 Am0 = (0.45*10^5);      %0.05*NA;
+%Am0 = 2036;
 Ac0 = NA-Am0;
 Pm0 = (0.05*10^5);      %0.45*NP;
+%Pm0 = 2.148*10^4;
 Pc0 = NP-Pm0;
 
 N0 = [Am0, Ac0, Pm0, Pc0];
@@ -58,6 +60,11 @@ ttime = zeros(1,tmax);
 ttime_sum = zeros(1,tmax);
 reaction = zeros(1,tmax);
 for t = 1:tmax
+    
+    if sum(Nt==0)~=0
+        break;
+    end
+    
      % calculate number of possible collisions
     for mu = 1:6
         h(mu) = nchoosek(Nt(1), Vminus(1, mu))*nchoosek(Nt(2), Vminus(2, mu))*nchoosek(Nt(3), Vminus(3, mu))*nchoosek(Nt(4), Vminus(4, mu));
@@ -101,13 +108,13 @@ for t = 1:tmax
 end
 
 figure(1);
-plot([0,ttime_sum],Nt_arr(1,:));
+scatter([0,ttime_sum],Nt_arr(1,:));
 
 %figure(2);
-%plot([0,ttime_sum],Nt_arr(2,:));
+%scatter([0,ttime_sum],Nt_arr(2,:));
 
-%figure(3);
-%plot([0,ttime_sum],Nt_arr(3,:));
+figure(3);
+scatter([0,ttime_sum],Nt_arr(3,:));
 
 %figure(4);
 %plot([0,ttime_sum],Nt_arr(4,:));    

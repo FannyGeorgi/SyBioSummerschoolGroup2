@@ -13,11 +13,11 @@ NA = 2.4*10^5;
 NP = 9.8*10^4;
 DA = 0.28;
 DP = 0.15;
-% declare reaction rates
+% declare reaction rates, and normalize to /s
 koffA = 3.24*10^(-3); % /s
 koffP = 7.19*10^(-3); % /s
-konA = 6.29*10^(-3); % um/s
-konP = 7.682*10^(-2); %um/s
+konA = 6.29*10^(-3)*A/V; % um/s
+konP = 7.682*10^(-2)*A/V; %um/s
 kAP = 0.004; % um^2/s % measure is obtained from other groups
 kPA = 0.006; % um^2/s % measure is obtained from other groups
 
@@ -26,13 +26,15 @@ b=2;
 
 t = 1;
 tmax = 500000;
-dt = 0.5;
+dt = 0.1;
 tsteps = tmax/dt;
 
 % declare initial conditions
 Am0 = (0.45*10^5)/A;      %0.05*NA;
+%Am0 = 2036/A;
 Ac0 = NA-Am0*A;
 Pm0 = (0.05*10^5)/A;      %0.45*NP;
+%Pm0 = 2.148*10^4/A;
 Pc0 = NP-Pm0*A;
 
 Am = zeros(1,tsteps);
@@ -60,9 +62,9 @@ end
 tvector = [1:(tsteps+1)];
 realtime = tvector*dt;
 
-figure(1);
-plot(realtime,(Am*A));
+figure(2);
+scatter(realtime,(Am*A));
 
-%figure(3);
-%plot(realtime,Pm);
+figure(4);
+scatter(realtime,Pm*A);
 

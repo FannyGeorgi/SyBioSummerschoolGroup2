@@ -5,11 +5,10 @@ clc;
 clear all;
 close all;
 
-
 Guiespie;
-%hold on;
+hold on;
 
-pause();
+%pause();
 
 euler;
-%hold on;
+hold on;
