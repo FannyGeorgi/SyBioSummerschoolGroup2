@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Script to discretely evaluate reactions using the Euler Algorithm
 
-clc;
+%clc;
 clear all;
-close all;
+%close all;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % declare geometry and dynamics
@@ -57,11 +57,12 @@ for t = 1:tsteps
     Pc(t+1) = NP/A - Pm(t+1);
 end
 
-tvector = [1:tsteps+1];
+tvector = [1:(tsteps+1)];
+realtime = tvector*dt;
 
 figure(1);
-plot(tvector,Am);
+plot(realtime,(Am/A));
 
-figure(3);
-plot(tvector,Pm);
+%figure(3);
+%plot(realtime,Pm);
 

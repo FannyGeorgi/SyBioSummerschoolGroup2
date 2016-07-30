@@ -2,7 +2,7 @@
 % Script to treat reactions (and diffusion) probabilistic using the Guiespie Algorithm
 
 clear all;
-close all;
+%close all;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % declare geometry and dynamics
@@ -15,9 +15,9 @@ DP = 0.15;
 tmax = 500000;
 
 % declare initial conditions
-Am0 = 0.45*10^5;      %0.05*NA;
+Am0 = (0.45*10^5);      %0.05*NA;
 Ac0 = NA-Am0;
-Pm0 = 0.05*10^5;      %0.45*NP;
+Pm0 = (0.05*10^5);      %0.45*NP;
 Pc0 = NP-Pm0;
 
 N0 = [Am0, Ac0, Pm0, Pc0];
@@ -103,11 +103,11 @@ end
 figure(1);
 plot([0,ttime_sum],Nt_arr(1,:));
 
-figure(2);
-plot([0,ttime_sum],Nt_arr(2,:));
+%figure(2);
+%plot([0,ttime_sum],Nt_arr(2,:));
 
-figure(3);
-plot([0,ttime_sum],Nt_arr(3,:));
+%figure(3);
+%plot([0,ttime_sum],Nt_arr(3,:));
 
-figure(4);
-plot([0,ttime_sum],Nt_arr(4,:));    
+%figure(4);
+%plot([0,ttime_sum],Nt_arr(4,:));    
