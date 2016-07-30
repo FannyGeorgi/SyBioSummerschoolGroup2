@@ -30,10 +30,10 @@ dt = 0.05;
 tsteps = tmax/dt;
 
 % declare initial conditions
-Am0 = 0.45*10^5;      %0.05*NA;
-Ac0 = NA-Am0;
-Pm0 = 0.05*10^5;      %0.45*NP;
-Pc0 = NP-Pm0;
+Am0 = (0.45*10^5)/A;      %0.05*NA;
+Ac0 = NA-Am0*A;
+Pm0 = (0.05*10^5)/A;      %0.45*NP;
+Pc0 = NP-Pm0*A;
 
 Am = zeros(1,tsteps);
 Am(1) = Am0;
@@ -57,9 +57,11 @@ for t = 1:tsteps
     Pc(t+1) = NP/A - Pm(t+1);
 end
 
+tvector = [1:tsteps+1];
+
 figure(1);
-plot(t,Am);
+plot(tvector,Am);
 
 figure(3);
-plot(t,Pm);
+plot(tvector,Pm);
 
