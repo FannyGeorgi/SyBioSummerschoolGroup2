@@ -25,8 +25,8 @@ a=1;
 b=2;
 
 t = 1;
-tmax = 500;
-dt = 0.05;
+tmax = 500000;
+dt = 0.5;
 tsteps = tmax/dt;
 
 % declare initial conditions
@@ -61,7 +61,7 @@ tvector = [1:(tsteps+1)];
 realtime = tvector*dt;
 
 figure(1);
-plot(realtime,(Am/A));
+plot(realtime,(Am*A));
 
 %figure(3);
 %plot(realtime,Pm);
